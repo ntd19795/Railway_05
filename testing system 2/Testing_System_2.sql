@@ -3,29 +3,29 @@ create database QL_Bai_Thi_Dau_Vao;
 use QL_Bai_Thi_Dau_Vao;
 CREATE TABLE `Department` (
     DepartmentID TINYINT unsigned primary key ,
-    DepartmentName VARCHAR(50)
+    DepartmentName VARCHAR(50) check (length(DepartmentName) >=8)
 );
 
 CREATE TABLE Position (
     PositionID SMALLINT unsigned primary key AUTO_INCREMENT,
-    PositionName VARCHAR(50)
+    PositionName NVARCHAR(50) default n'Thử việc'
 );
 -- lam` foreign key link (references) voi' 1 cot cua 1 bang khac'
 CREATE TABLE `Account` (
     AccountID SMALLINT unsigned primary key AUTO_INCREMENT,
     Email VARCHAR(30),
-    Username CHAR(12) ,
+    Username CHAR(12) check (length(Username) >=6), -- điều kiện độ dài >= 6
     FullName VARCHAR(50),
-    DepartmentID TINYINT unsigned,
-    PositionID SMALLINT unsigned,
-    CreateDate DATE,
-    foreign key (PositionID) references department (DepartmentID),
+    DepartmentID TINYINT unsigned default (1),
+    PositionID TinyINT unsigned,
+    CreateDate DATETIME DEFAULT NOW( ),
+    foreign key (PositionID) references Department (DepartmentID),
     UNIQUE key (Username)
 );
 
 CREATE TABLE `Group` ( 
-    GroupID TINYINT unsigned primary key,
-    GroupName VARCHAR(50),
+    GroupID TINYINT unsigned primary key AUTO_INCREMENT,
+    GroupName VARCHAR(10),
     CreatorID TINYINT unsigned ,
     CreateDate DATE,
     foreign key (CreatorID) references department (DepartmentID)
@@ -33,11 +33,11 @@ CREATE TABLE `Group` (
 
 CREATE TABLE `GroupAccount` (
     GroupID TINYINT unsigned primary key,
-    AccountID SMALLINT unsigned primary key,
+    AccountID SMALLINT unsigned ,
     JoinDate DATE
 );
 
-CREATE TABLE TypeQuesttion (
+CREATE TABLE TypeQuestion (
     TypeID SMALLINT unsigned primary key AUTO_INCREMENT,
     TypeName enum ('Essay', 'Multiple-Choice')
 );
@@ -57,15 +57,14 @@ CREATE TABLE Question (
 );
 
 create table Answer (
-AnswerID tinyint AUTO_INCREMENT,
+AnswerID tinyint AUTO_INCREMENT primary key,
 Content varchar(1000),
 QuestionID smallint,
-isCorrect ENUM('Dung','Sai') ,
-primary key (QuestionId, AnswerID)
+isCorrect bit default (0) -- 0 sai 1 đúng 
 );
 
 CREATE TABLE Exam (
-    ExamID tinyINT unsigned AUTO_INCREMENT,
+    ExamID tinyINT unsigned AUTO_INCREMENT primary key,
     `Code` SMALLINT unsigned,
     Title VARCHAR(50),
     CategoryID TINYINT unsigned,
@@ -84,7 +83,7 @@ CREATE TABLE ExamQuestion (
 insert into Department(DepartmentID,DepartmentName)
 Values
  (1, N'Marketing'),
- (2, N'Sale'),
+ (2, N'Bán hàng'),
  (3, N'Bảo vệ'),
  (4, N'Nhân sự'),
  (5, N'Kỹ thuật');
@@ -126,7 +125,7 @@ VALUES
 
 insert into TypeQuestion (TypeName)
 VALUEs
-('Essey'),
+('Essay'),
 ('Multiple-Choice');
 
 insert into CategoryQuestion (CategoryName)
@@ -147,10 +146,11 @@ Values
 
 insert into Answer (Content, QuestionID, isCorrect)
 values
-('2',1, Dung),
-(not '2', Sai),
-('3',2,Dung),
-(not '3', 2, Sai);
+('2',1, 1),
+(not '2',1, 0),
+('3',2,1),
+(not'3',2,0);
+
 
 insert into Exam (Code, Title,CategoryID, Duration, CreatorID, CreateDate)
 Values
