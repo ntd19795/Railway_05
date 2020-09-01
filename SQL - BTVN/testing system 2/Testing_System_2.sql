@@ -2,58 +2,60 @@ drop database if exists QL_Bai_Thi_Dau_Vao;
 create database QL_Bai_Thi_Dau_Vao;
 use QL_Bai_Thi_Dau_Vao;
 CREATE TABLE `Department` (
-    DepartmentID TINYINT unsigned primary key ,
-    DepartmentName VARCHAR(50) check (length(DepartmentName) >=8)
+    DepartmentID TINYINT UNSIGNED PRIMARY KEY,
+    DepartmentName VARCHAR(50) CHECK (LENGTH(DepartmentName) >= 8)
 );
 
 CREATE TABLE Position (
-    PositionID SMALLINT unsigned primary key AUTO_INCREMENT,
-    PositionName NVARCHAR(50) default n'Thử việc'
+    PositionID SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    PositionName NVARCHAR(50)
 );
--- lam` foreign key link (references) voi' 1 cot cua 1 bang khac'
+
+-- lam` foreign key link (references) voi' 1 cot cua 1 bang khac
 CREATE TABLE `Account` (
     AccountID SMALLINT unsigned primary key AUTO_INCREMENT,
-    Email VARCHAR(30),
+    Email VARCHAR(30) check (length(Email) >=8),
     Username CHAR(12) check (length(Username) >=6), -- điều kiện độ dài >= 6
     FullName VARCHAR(50),
-    DepartmentID TINYINT unsigned default (1),
-    PositionID TinyINT unsigned,
+    DepartmentID TINYINT UNSIGNED DEFAULT (1),
+    PositionID TinyINT UNSIGNED,
     CreateDate DATETIME DEFAULT NOW( ),
-    foreign key (PositionID) references Department (DepartmentID),
+    FOREIGN KEY (PositionID) REFERENCES Department (DepartmentID),
     UNIQUE key (Username)
 );
 
-CREATE TABLE `Group` ( 
-    GroupID TINYINT unsigned primary key AUTO_INCREMENT,
-    GroupName VARCHAR(10),
-    CreatorID TINYINT unsigned ,
-    CreateDate DATE,
-    foreign key (CreatorID) references department (DepartmentID)
+CREATE TABLE `Group` (
+    GroupID TINYINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    GroupName VARCHAR(10) ,
+    CreatorID TINYINT UNSIGNED,
+    CreateDate DATETIME DEFAULT NOW() ,
+    FOREIGN KEY (CreatorID)
+        REFERENCES department (DepartmentID)
 );
 
 CREATE TABLE `GroupAccount` (
-    GroupID TINYINT unsigned primary key,
-    AccountID SMALLINT unsigned ,
+    GroupID TINYINT UNSIGNED PRIMARY KEY,
+    AccountID SMALLINT UNSIGNED,
     JoinDate DATE
 );
 
 CREATE TABLE TypeQuestion (
-    TypeID SMALLINT unsigned primary key AUTO_INCREMENT,
-    TypeName enum ('Essay', 'Multiple-Choice')
+    TypeID SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    TypeName ENUM('Essay', 'Multiple-Choice')
 );
 
 CREATE TABLE CategoryQuestion (
-    CategoryID TINYINT unsigned primary key AUTO_INCREMENT,
+    CategoryID TINYINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     CategoryName VARCHAR(50)
 );
 
 CREATE TABLE Question (
-    QuestionID SMALLINT unsigned primary key AUTO_INCREMENT,
+    QuestionID SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     Content VARCHAR(1000),
-    CategoryID TINYINT unsigned,
-    TypeID TINYINT unsigned,
-    CreatorID SMALLINT unsigned,
-    CreateDate DATE
+    CategoryID TINYINT UNSIGNED,
+    TypeID TINYINT UNSIGNED,
+    CreatorID SMALLINT UNSIGNED,
+    CreateDate DATEtime DEFAULT NOW()
 );
 
 create table Answer (
@@ -64,18 +66,18 @@ isCorrect bit default (0) -- 0 sai 1 đúng
 );
 
 CREATE TABLE Exam (
-    ExamID tinyINT unsigned AUTO_INCREMENT primary key,
-    `Code` SMALLINT unsigned,
+    ExamID TINYINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    `Code` SMALLINT UNSIGNED,
     Title VARCHAR(50),
-    CategoryID TINYINT unsigned,
-    Duration varchar (5),
-    CreatorID TINYINT unsigned,
-    CreateDate DATETIME
+    CategoryID TINYINT UNSIGNED,
+    Duration tinyint, -- đơn vị: phút
+    CreatorID TINYINT UNSIGNED,
+    CreateDate DATETIME DEFAULT NOW()
 );
 
 CREATE TABLE ExamQuestion (
-    ExamID SMALLINT unsigned,
-    QuestionID SMALLINT unsigned
+    ExamID SMALLINT UNSIGNED,
+    QuestionID SMALLINT UNSIGNED
 );
 
 
@@ -106,13 +108,13 @@ Values
 ('abcxyz5@gmail.com', 'abcxyz5', 'Abc Xyz5', 5, 5, 20200905);
 
 -- 4
-insert into `Group` (GroupName, CreatorID, CreateDate)
+insert into `Group` (GroupName, CreatorID)
 Values
-('red',1,20200901),
-('white',2,20200901),
-('black',3,20200901),
-('orange',4,20200901),
-('green',5,20200901);
+('red',1),
+('white',2),
+('black',3),
+('orange',4),
+('green',5);
 
 -- 5
 insert into GroupAccount (GroupID, AccountID, JoinDate)
@@ -152,13 +154,13 @@ values
 (not'3',2,0);
 
 
-insert into Exam (Code, Title,CategoryID, Duration, CreatorID, CreateDate)
+insert into Exam (Code, Title,CategoryID, Duration, CreatorID)
 Values
-(101, 'Thi Lần 1', 1, '1h',1,20200901),
-(102, 'Thi Lần 2', 2, '1h',2,20200901),
-(103, 'Thi Lần 3', 3, '1h',3,20200901),
-(104, 'Thi Lần 4', 1, '1h',4,20200901),
-(105, 'Thi Lần 5', 2, '1h',5,20200901);
+(101, 'Thi Lần 1', 1, '60',1),
+(102, 'Thi Lần 2', 2, '60',2),
+(103, 'Thi Lần 3', 3, '60',3),
+(104, 'Thi Lần 4', 1, '60',4),
+(105, 'Thi Lần 5', 2, '60',5);
 
 insert into ExamQuestion (ExamID, QuestionID)
 Values
