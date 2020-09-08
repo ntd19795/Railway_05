@@ -1,6 +1,9 @@
--- Question 2: Viết lệnh để lấy ra tất cả các thực tập sinh đã vượt qua bài test đầu vào,
--- nhóm chúng thành các tháng sinh khác nhau
-select *
+
+USE Fresher_management;
+-- Q1: INSERT data
+/* Question 2: Viết lệnh để lấy ra tất cả các thực tập sinh đã vượt qua bài test đầu vào,
+nhóm chúng thành các tháng sinh khác nhau */
+select *, month(birth_date), count(traineeid)
 from trainee
 group by month(birth_date);
 
@@ -18,7 +21,7 @@ where char_length(Full_Name) = (select max(char_length(full_name)) from trainee)
 --		 ET_English>=18 */
 select * 
 from trainee
-having
+where
 (ET_IQ + ET_Gmath) >= '20' and
 et_iq >= 8 and
 et_gmath >= 8 and
@@ -27,11 +30,11 @@ et_english >= 18
 -- Question 5: xóa thực tập sinh có TraineeID = 3
 delete from trainee
 where traineeid = 3;
-rollback;
+select * from trainee; -- check
 
-select * from trainee;
-
-
--- Question 6: Thực tập sinh có TraineeID = 5 được chuyển sang lớp "2". 
--- Hãy cập nhật thông tin vào database
-
+/* Question 6: Thực tập sinh có TraineeID = 5 được chuyển sang lớp "2". 
+Hãy cập nhật thông tin vào database */
+commit;
+update trainee
+set Trainning_Class = 'VTI002'
+where TraineeID = '5';

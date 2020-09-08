@@ -31,8 +31,8 @@ CREATE TABLE `Account`(
     DepartmentID 			TINYINT UNSIGNED NOT NULL,
     PositionID				TINYINT UNSIGNED NOT NULL,
     CreateDate				DATETIME DEFAULT NOW(),
-    FOREIGN KEY(DepartmentID) REFERENCES Department(DepartmentID),
-    FOREIGN KEY(PositionID) REFERENCES `Position`(PositionID)
+    FOREIGN KEY(DepartmentID) REFERENCES Department(DepartmentID) ON DELETE CASCADE,
+    FOREIGN KEY(PositionID) REFERENCES `Position`(PositionID) ON DELETE CASCADE
 );
 
 -- create table 4: Group
@@ -76,9 +76,9 @@ CREATE TABLE Question(
     TypeID					TINYINT UNSIGNED NOT NULL,
     CreatorID				TINYINT UNSIGNED NOT NULL UNIQUE KEY,
     CreateDate				DATETIME DEFAULT NOW(),
-    FOREIGN KEY(CategoryID) 	REFERENCES CategoryQuestion(CategoryID),
-    FOREIGN KEY(TypeID) 		REFERENCES TypeQuestion(TypeID),
-    FOREIGN KEY(CreatorID) 		REFERENCES `Account`(AccountId)
+    FOREIGN KEY(CategoryID) 	REFERENCES CategoryQuestion(CategoryID) ON DELETE CASCADE,
+    FOREIGN KEY(TypeID) 		REFERENCES TypeQuestion(TypeID) ON DELETE CASCADE,
+    FOREIGN KEY(CreatorID) 		REFERENCES `Account`(AccountId) ON DELETE CASCADE
 );
 
 -- create table 9: Answer
@@ -88,7 +88,7 @@ CREATE TABLE Answer(
     Content					NVARCHAR(100) NOT NULL,
     QuestionID				TINYINT UNSIGNED NOT NULL,
     isCorrect				BIT DEFAULT 1,
-    FOREIGN KEY(QuestionID) REFERENCES Question(QuestionID)
+    FOREIGN KEY(QuestionID) REFERENCES Question(QuestionID) ON DELETE CASCADE
 );
 
 -- create table 10: Exam
@@ -101,8 +101,8 @@ CREATE TABLE Exam(
     Duration				TINYINT UNSIGNED NOT NULL,
     CreatorID				TINYINT UNSIGNED NOT NULL,
     CreateDate				DATETIME DEFAULT NOW(),
-    FOREIGN KEY(CategoryID) REFERENCES CategoryQuestion(CategoryID),
-    FOREIGN KEY(CreatorID) 	REFERENCES `Account`(AccountId)
+    FOREIGN KEY(CategoryID) REFERENCES CategoryQuestion(CategoryID) ON DELETE CASCADE,
+    FOREIGN KEY(CreatorID) 	REFERENCES `Account`(AccountId) ON DELETE CASCADE
 );
 
 -- create table 11: ExamQuestion
@@ -110,8 +110,8 @@ DROP TABLE IF EXISTS ExamQuestion;
 CREATE TABLE ExamQuestion(
     ExamID				TINYINT UNSIGNED NOT NULL,
 	QuestionID			TINYINT UNSIGNED NOT NULL,
-    FOREIGN KEY(QuestionID) REFERENCES Question(QuestionID),
-    FOREIGN KEY(ExamID) REFERENCES Exam(ExamID),
+    FOREIGN KEY(QuestionID) REFERENCES Question(QuestionID) ON DELETE CASCADE,
+    FOREIGN KEY(ExamID) REFERENCES Exam(ExamID) ON DELETE CASCADE,
     PRIMARY KEY (ExamID,QuestionID)
 );
 
