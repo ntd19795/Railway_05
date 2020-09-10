@@ -78,8 +78,63 @@ from product
 where ListPrice = (select * from min_price)
 ;
 
-
+/* 
+Exercise 2: JOIN nhiều bảng
+Question 1: Viết query lấy danh sách tên country và province được lưu trong
+AdventureWorks2008sample database.
+Kết quả sẽ như sau: (181 row(s) affected)
+ */
+select c.`name` as Country, s.`name` as Province
+from countryregion c
+right join stateprovince s on c.CountryRegionCode = s.CountryRegionCode
 ;
 
+/* Question 2: Tiếp tục với câu query trước và thêm điều kiện là chỉ lấy country
+Germany và Canada
+Chú ý: sủ dụng sort order và column headings -> là gì?
+20 row(s) affected
+ */
 
+select c.`name` as Country, s.`name` as Province
+from countryregion c
+right join stateprovince s on c.CountryRegionCode = s.CountryRegionCode
+where c.`name` in ('Germany', 'canada')
+;
 
+/*
+Đề bài không rõ!
+SalesOrderID, OrderDate and SalesPersonID. Từ bảng SalesPerson, chúng ta lấy cột
+BusinessEntityID (là định danh của người sales), Bonus and the SalesYTD (là đã sale
+được bao nhiêu người trong năm nay)
+Hướng dẫn: Join SalesOrderHeader và SalesPerson để hạn chế kết quả non-Internet
+orders (order được xử lý trên Internet có OnlineOrderFlag = 1 và cột SalesPersonID =
+null)
+*/
+-- SalesOrderID, OrderDate, SalesPersonID from salesorderheader
+-- SalesPersonID as BusinessEntityID, Bonus, SalesYTD from salesperson
+select s.SalesOrderID, s.OrderDate, s.SalesPersonID, sp.SalesPersonID as BusinessEntityID, sp.Bonus, sp.SalesYTD
+from salesorderheader s
+join salesperson sp
+on s.SalesPersonID = sp.SalesPersonID
+where s.OnlineOrderFlag <> '1' and s.SalesPersonID <> 'null'
+;
+select * from HumanResources.Employee;
+/*
+Question 4:
+Sử dụng câu query, thêm cột JobTitle (Tittle trong employee?) and xóa cột SalesPersonID và
+BusinessEntityID.
+Hướng dẫn:
+Join với bảng HumanResources.Employee -- làm gì có bảng này?
+
+SalesOrderID OrderDate Jobtitle Bonus SalesYTD
+
+(3806 row(s) affected) chịu, lấy đâu ra lắm thế!!??
+*/
+
+select s.SalesOrderID, s.OrderDate, s.SalesPersonID, e.Title as JobTitle, sp.Bonus, sp.SalesYTD
+from salesorderheader s
+join salesperson sp
+on s.SalesPersonID = sp.SalesPersonID
+join employee e 
+on s.SalesPersonID = e.EmployeeID
+where s.OnlineOrderFlag <> '1' and s.SalesPersonID <> 'null'
