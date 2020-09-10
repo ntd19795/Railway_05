@@ -27,6 +27,7 @@ group by p.PositionID) as min_acc
 ;
 
 -- Question 11: Thống kê mỗi phòng ban có bao nhiêu dev, test, scrum master, PM
+-- sai, thiếu các cái positionid = 0
 select d.*, p.*, count(a.accountid)
 from `account` a
 right join department d
@@ -36,6 +37,11 @@ right join position p
 group by p.PositionID, d.DepartmentID
 order by d.DepartmentID, p.PositionID
 ;
+-- Question 11: Thống kê mỗi phòng ban có bao nhiêu dev, test, scrum master, PM
+-- gợi ý:  dùng cross join
+-- tao bang dem so acc cua cac position
+-- cross join voi bang department
+
 
 -- Question 12: Lấy thông tin chi tiết của câu hỏi bao gồm: thông tin cơ bản của
 -- question, loại câu hỏi, ai là người tạo ra câu hỏi, câu trả lời là gì, …
@@ -60,6 +66,15 @@ group by t.TypeID
 order by t.typeid;
 
 -- Question 14:Lấy ra group không có account nào
+select g.groupid
+from `group`g 
+left join groupaccount ga
+on g.GroupID = ga.GroupID
+group by g.groupid
+having count(ga.accountid) is null
+;
+
+
 -- Question 15: Lấy ra group không có account nào
 -- Question 16: Lấy ra question không có answer nào
 
