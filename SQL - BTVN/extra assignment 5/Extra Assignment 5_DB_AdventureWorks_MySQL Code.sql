@@ -10,7 +10,7 @@ from productsubcategory
 where `Name` = 'Saddles')
 select `name` as Product_name
 from product
-where ProductSubcategoryID = (select ProductSubcategoryID from PS_name_is_Saddles)
+where ProductSubcategoryID in (select ProductSubcategoryID from PS_name_is_Saddles)
 ;
 
 -- viet theo kieu join
@@ -67,7 +67,7 @@ Touring-3000 Blue, 50
 */
 
 with min_price as
-(select min(p.ListPrice)
+(select min(p.ListPrice) as minprice, ps.ProductSubcategoryID as PS_ID
 from product p
 left join productsubcategory ps
 on p.ProductSubcategoryID = ps.ProductSubcategoryID
@@ -75,7 +75,7 @@ where ps.`name` = 'Touring Bikes')
 
 select productid, `name`
 from product
-where ListPrice = (select * from min_price)
+where ProductSubcategoryID = (select PS_ID from min_price) and ListPrice = (select minprice from min_price)
 ;
 
 /* 
@@ -102,11 +102,11 @@ where c.`name` in ('Germany', 'canada')
 ;
 
 /*
-Đề bài không rõ!
+Question 3:
 SalesOrderID, OrderDate and SalesPersonID. Từ bảng SalesPerson, chúng ta lấy cột
 BusinessEntityID (là định danh của người sales), Bonus and the SalesYTD (là đã sale
 được bao nhiêu người trong năm nay)
-Hướng dẫn: Join SalesOrderHeader và SalesPerson để hạn chế kết quả non-Internet
+Hướng dẫn: Join SalesOrderHeader và SalesPerson để hạn chế kết quả non-Internet = lấy kq những thằng mua online
 orders (order được xử lý trên Internet có OnlineOrderFlag = 1 và cột SalesPersonID =
 null)
 */
