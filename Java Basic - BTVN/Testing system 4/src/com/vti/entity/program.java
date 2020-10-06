@@ -17,15 +17,18 @@ public class program {
 				"conmeo	", "con", 
 				"meo", "mysql", LocalDate.now()
 		);
-		ex1q2a(account1);
+//		ex1q2a(account1);
 		Account[] groupsAccount1 = {account1,account2 };
 		
 		Group group1 = new Group(1, "Pet", account1, 
 				LocalDate.now(),groupsAccount1 );
 		
+		String[] usernames = {"conlon", "conbo"};
+		
+		
 		
 	System.out.println(" __________________\nQuestion2.b ");
-		ex1q3b(group1);
+//		ex1q3b(group1);
 
 		
 	}
@@ -37,5 +40,10 @@ public class program {
 	System.out.println(group);
 	}
 	
+	public static void ex1q3c(Group grou) {
+		
+		
+	}
+
 	
 }

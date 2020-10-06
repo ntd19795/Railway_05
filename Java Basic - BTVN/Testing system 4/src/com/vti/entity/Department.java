@@ -1,8 +1,8 @@
 package com.vti.entity;
 
 public class Department {
-	public int department = 0;
-	public String departmentName;
+	private int department = 0;
+	private String departmentName;
 	
 	
 	Department () {}
@@ -21,5 +21,19 @@ public class Department {
 	public String toString() {
 		return "Department [department=" + department + ", departmentName=" + departmentName + "]";
 	}
+	public int getDepartment() {
+		return department;
+	}
+	public void setDepartment(int department) {
+		this.department = department;
+	}
+	public String getDepartmentName() {
+		return departmentName;
+	}
+	public void setDepartmentName(String departmentName) {
+		this.departmentName = departmentName;
+	}
+	
+	
 	
 }
