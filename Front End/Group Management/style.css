@@ -1,0 +1,51 @@
+body {
+    margin: 0;
+}
+
+img{
+    max-width: 100%;
+
+}
+
+.body {
+    display: flex;
+    height: 100vh;
+    
+
+}
+
+.sidebar {
+    width: 80px;
+    border-right: 1px solid black;
+
+}
+.sidebar  a {
+    display: block;
+    text-align: center;
+    border-bottom: 1px solid;
+    padding: 10px;
+    font-size: 30px;
+    color: black;
+
+}
+
+.sidebar  a.logo {
+    padding-bottom: 0px;
+
+}
+.main{
+    width: calc(100% - 80px);
+
+
+}
+
+
+.header {
+    background: brown;
+    height: ;
+}
+
+.content {
+    background: rgb(0, 184, 70);
+
+}

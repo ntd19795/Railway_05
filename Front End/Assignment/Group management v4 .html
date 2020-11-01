@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group ManagementManagement</title>
+
+    <style>
+ /* tạo style cho sidebar  */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            margin-top: 70px;
+          width: 70px;
+          border-right: solid black;
+          border-top: white;
+        }
+        .sidebar > div {
+            background-color: rgb(255, 255, 255);
+            line-height: 70px;
+            width: 70px;
+            text-align: center;
+            border-bottom: solid black;
+            border-top: white;
+
+        }
+        .sidebar > div > img {
+            width: 50px;
+            height: auto;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+/* tạo style cho header */
+
+        .header {
+            background:white;
+            display: flex;
+            flex-direction: row;
+            position: fixed;
+            top: 0px;
+            width: 100%;
+            border-bottom: solid black;
+            padding: 0px;
+            
+        }
+        .header > div {
+            line-height: 70px;
+            width: 70px;
+            text-align: center;
+            border-right: solid black;
+        }
+        .header > div > img {
+            width: 70px;
+            height: auto;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+/* Câu Managegroup */
+        .header > h1 {
+           position: fixed;
+            margin-top: 90px;
+            margin-left: 90px;
+        }
+/* Tạo bảng */
+        table {
+            display: 
+            border-collapse: collapse;
+            position: fixed;
+            top: 150px;
+            left: 90px;
+            background-color: white;
+            border: 1px solid black;
+            width: 91.5%;
+        }
+        td {
+            border: 1px solid black;
+
+        }
+        td > img {
+            height: 25px;
+            padding-right: 5px;
+
+        }
+
+        </style> 
+        
+        
+</head>
+<body style="margin: 0;">
+    <!-- tạo side bar -->
+    <div class="sidebar">
+        <!-- <div >
+        <img src="logovti.bmp" alt="logo">
+        </div>  -->
+        <div><img src="home.png" alt="home "></div>
+        <div><img src="user2.png" alt="user2"></div>
+        <div><img src="users.png" alt="users"></div>
+        <div><img src="4duongkenngang.png" alt="kengang"></div>
+        <div><img src="aDocument.png" alt="doccument"></div>
+        <div><img src="questionmark.png" alt="questionmark"></div>
+    </div>
+<!-- tạo header  -->
+    <div class="header" >
+        <div >
+        <img src="logovti.bmp" alt="logo">
+        </div> 
+        <div style="border-right: white;">
+            <img src="4duongkenngang.png" alt="4duongkenngang">
+        </div>
+
+        <div style="width: 70%; border-left: white; border-right: white;">  </div>
+        <div  style="border-left: white; border-right: white;"><img src="bell.bmp" alt="bell"></div>
+        <div  style="border-left: white; border-right: white;"><img src="user.png" alt="user"></div>
+        <div  style=" border-left: white; border-right: white;">NAT</div>
+<!-- manage Group -->
+
+    <h1>Manage Group <img style="height: 70px; width: auto;padding-bottom: 10px; padding-left:10px; vertical-align: middle;" src="users.png" alt="users"> </h1> 
+<!-- tạo bảng -->
+
+<table>
+    <!-- row1 -->
+    <tr>
+       <td colspan="6" ><h2 style="margin: 12px;">List Group</h2></td> 
+    </tr>
+
+    <!-- row2 -->
+    <tr>
+        <td colspan="5" style="border-right:  white ;"  >
+              <!-- search Bar -->
+              <form class="example" action="action_page.php"  style="margin-left : 12px; display: flex">
+                <button type="submit" style="background: none; border: 1px solid #ccc; border-right: none;"><img height="15px" src="Search.png" alt="search"></button>
+                <input type="text" placeholder="Search group.." name="search" style="border: 1px solid #CCC; border-left: none;">
+              </form>
+        </td> 
+        <td style="text-align: right; border-left: white; padding: 10px">
+            <img src="plus.png" alt="plus">
+            <img src="refresh.png" alt="refresh">
+            <img src="regbin.png" alt="regbin">
+
+        </td>
+     </tr>
+
+     <!-- row3 -->
+    <tr style="padding: 0px;">
+        <td>aaaaa</td>
+        <td>aaaa</td>
+        <td>sss </td>
+        <td>aaa</td>
+        <td>sdlfkjsd</td>
+        <td>skdfjsdkj</td>
+    </tr>
+    <tr><td>aaaa</td>
+    <td>aaaa</td></tr>
+
+
+
+
+</table>
+
+    </div>
+
+</body>
+</html>

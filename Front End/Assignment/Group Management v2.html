@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+/* Style the body */
+body {
+  font-family: Arial;
+  margin: 0;
+}
+
+/* Header/Logo Title */
+.header {
+  /* padding: 0px; */
+  text-align: right;
+  background: white;
+  color: black;
+  font-size: 20.5px;
+  /* height: 74px; */
+  border: 1px solid #000;
+}
+
+/* Page Content */
+.content {padding:20px;}
+</style>
+<style class:"table">
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td{
+  /* padding: 5px; */
+  text-align: left;
+}
+</style>
+
+
+  <body>
+<!-- thanh ngang tren cung -->
+  <table style="width:100%">
+<tr>
+  <th style="width: 20px"><img width="67.5px" height="50"src="logovti.bmp" alt="vtilogo" align="left" ></th>
+  <th style="text-align: right;"><pre><a href="#"><img src="bell.bmp" alt="bell.bmp" style="width:40px ; " ></a>  <a href="#"><img src="user.png" alt="user.png" style="width:40px ;"></a>   NAT   </pre> </th>
+</tr>
+  </table>
+
+<!-- sidebar -->
+<div class="sidebar">
+<table width ="100%">
+  <tr>
+    <td style="width:70px; border: 1px solid #000; border-top-style: none; "   >  <a href="#"> <img width="67.5px"  src="home.png" alt="home"> </a></td>
+
+    <!-- gộp các ô bên phải vào thành 1 -->
+    <td rowspan="6" valign ="top" >
+      <pre style="margin-left : 12px; font-size: 30px ">  <b >Manage Group</b> <img width="50px" height="auto" src="users.png" alt="users"> </pre>
+
+          <table width = "98%"  style="margin-left : 12px; margin-right: 10px" >
+            <tr>
+              <td colspan ="6"  > <h3  style="margin-left : 12px;" >List group</h3> </td>
+            </tr>
+            <tr>
+              <td colspan ="5"  style=" border-top-width: 1px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 1px;" >
+                <!-- Load icon library -->
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+                <!-- The form -->
+                <form class="example" action="action_page.php"  style="margin-left : 12px; display: flex">
+                  <button type="submit" style="background: none; border: 1px solid #ccc; border-right: none;"><i class="fa fa-search"></i></button>
+                  <input type="text" placeholder="Search.." name="search" style="border: 1px solid #CCC; border-left: none;">
+                </form>
+              </td>
+
+              <td  style=" border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 0px; text-align: right;">
+<a href="#"><img height = "30px" src="plus.png" alt="plus"></a>    <a href="#" style="padding-left: 5px"><img height = "30px" src="refresh.png" alt="refresh"></a>   <a href="#"  style="padding-left: 5px; padding-right: 5px" ><img height = "30px" src="regbin.png" alt="regbin"></a>
+              </td>
+<!-- row0 -->
+            </tr>
+            <tr style="background-color:#A6ACAF " >
+              <td></td>
+              <td>STT</td>
+              <td>Group Name</td>
+              <td>Member</td>
+              <td>Creator</td>
+              <td>Create date</td>
+            </tr >
+<!-- row1 -->
+            <tr style="background-color:#E5E7E9  ">
+              <td style="width:30px; text-align:center ">
+                <input type="checkbox" id="myCheck" onclick="myFunction()" >
+
+              </td>
+
+          <td >1</td>
+          <td>Fresher Java</td>
+          <td>5</td>
+          <td>NAT</td>
+          <td>21/02/2020</td>
+            </tr>
+<!-- row2 -->
+            <tr>
+              <td style="width:30px; text-align:center ">
+                <input type="checkbox" id="myCheck" onclick="myFunction()" >
+                <p id="text" style="display:none">Checkbox is CHECKED!</p>
+              </td>
+
+          <td >2</td>
+          <td>Fresher Python</td>
+          <td>2</td>
+          <td>NAT</td>
+          <td>21/02/2020</td>
+            </tr>
+<!-- row3 -->
+            <tr style="background-color:#E5E7E9  ">
+              <td style="width:30px; text-align:center ">
+                <input type="checkbox" id="myCheck" onclick="myFunction()" >
+                <p id="text" style="display:none">Checkbox is CHECKED!</p>
+              </td>
+
+          <td >3</td>
+          <td>Fresher C#</td>
+          <td>7</td>
+          <td>NAT</td>
+          <td>21/02/2020</td>
+            </tr>
+<!-- row4 -->
+            <tr>
+              <td style="width:30px; text-align:center ">
+                <input type="checkbox" id="myCheck" onclick="myFunction()" >
+                <p id="text" style="display:none">Checkbox is CHECKED!</p>
+              </td>
+
+          <td >4</td>
+          <td>VTI Academy</td>
+          <td>1</td>
+          <td>NAT</td>
+          <td>21/02/2020</td>
+            </tr>
+<!-- row5 -->
+            <tr style="background-color:#E5E7E9  " >
+              <td style="width:30px; text-align:center ">
+                <input type="checkbox" id="myCheck" onclick="myFunction()" >
+                <p id="text" style="display:none">Checkbox is CHECKED!</p>
+              </td>
+
+          <td >5</td>
+          <td>Railway EPD 1</td>
+          <td>3</td>
+          <td>NAT</td>
+          <td>20/02/2020</td>
+            </tr>
+          </table>
+
+     </td>
+  </tr>
+  <tr>
+    <td style="width:70px; border: 1px solid #000;"  >  <a href="#"> <img width="67.5px"  src="user2.png" alt="user2"> </a></td>
+  </tr>
+  <tr>
+    <td style="width:70px; border: 1px solid #000;"  >  <a href="#"> <img width="67.5px"  src="users.png" alt="users"> </a></td>
+  </tr>
+  <tr>
+    <td style="width:70px; border: 1px solid #000;"  >  <a href="#"> <img width="67.5px"  src="4duongkenngang.png" alt="4duongkenngang"> </a></td>
+  </tr>
+  <tr>
+    <td style="width:70px; border: 1px solid #000;"  >  <a href="#"> <img width="67.5px"  src="aDocument.png" alt="aDocument"> </a></td>
+  </tr>
+  <tr>
+    <td style="width:70px; border: 1px solid #000;"  >  <a href="#"> <img width="67.5px"  src="questionmark.png" alt="questionmark"> </a></td>
+  </tr>
+
+</table>
+<!-- <div class="w3-sidebar w3-bar-block w3-white w3-xxlarge" style="width:74px; border: 1px solid white; ">
+  <a style="width:70px; border: 1px solid #000;"  href="#" class="w3-bar-item w3-button"><i class="fa fa-home"></i></a>
+  <a style="width:70px; border: 1px solid #000;"  href="#"><img style="width:60px; " src="user2.png" alt="user2.png"> </a>
+  <a style="width:70px; border: 1px solid #000;"  href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>
+  <a style="width:70px; border: 1px solid #000;"  href="#" class="w3-bar-item w3-button"><i class="fa fa-globe"></i></a>
+  <a style="width:70px; border: 1px solid #000;"  href="#" class="w3-bar-item w3-button"><i class="fa fa-trash"></i></a>
+  <a style="width:70px; border: 1px solid #000;"  href="#" class="w3-bar-item w3-button"><i class="fa fa-trash"></i></a>
+</div> -->
+
+
+  </body>
+</html>
