@@ -2,10 +2,19 @@ body {
     margin: 0;
 }
 
+:root {
+    --headerheigh: 54.5px;
+}
+
 img{
     max-width: 100%;
 
 }
+a {
+    color: inherit;
+}
+
+
 
 .body {
     display: flex;
@@ -26,13 +35,14 @@ img{
     padding: 10px;
     font-size: 30px;
     color: black;
+    text-shadow: 2px 2px  rgb(163, 163, 163) ;
 
 }
 
 .sidebar  a.logo {
     padding-bottom: 0px;
-
 }
+
 .main{
     width: calc(100% - 80px);
 
@@ -41,11 +51,76 @@ img{
 
 
 .header {
-    background: brown;
-    height: ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    
+    background: white;
+    height: var(--headerheigh);
+    border-bottom: 1px solid black;    
+    font-size: 30px;
+    color: black;
+    text-shadow: 2px 2px  rgb(163, 163, 163) ;
+
+
+
 }
 
-.content {
-    background: rgb(0, 184, 70);
 
+.benphai a {
+margin-left: 20px;
+}
+
+
+.content {
+    margin: 20px;
+    height:  100% ;
+    background: white;
+
+}
+table { 
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid black;
+    margin-top: 20px;
+
+}
+
+
+
+.searchrow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 30px;
+    margin: 10px 0px;
+
+}
+
+tbody tr:nth-child(2n+1) {
+background-color: rgb(231, 231, 231);
+}
+    
+td.checkbox {
+    text-align: center ;
+    width: 30px;
+}
+
+tbody td  {
+    padding: 15px
+}
+
+tbody td:nth-child(2) {
+    text-align: center;
+}
+
+tbody th i {
+    float: right;
+}
+tbody tr:first-child th:not(:first-child){
+    text-align: left;
 }

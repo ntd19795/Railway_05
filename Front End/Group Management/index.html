@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="style.css">
 
 </head>
+
 <body>
     <div class="body">
 
-        <div class="sidebar"> 
+        <div class="sidebar">
             <a class="logo" href=""><img src="logovti.bmp" alt="logo"></a>
             <a href=""><i class="fas fa-home"></i></a>
             <a href=""><i class="fas fa-user"></i></a>
@@ -27,25 +30,137 @@
 
         <div class="main">
             <div class="header">
+                <div class="bentrai">
+                    <a class = "menu" href=""><i class="fas fa-bars"></i></a>
+                </div>
 
-                header
-
-
+                <div class="benphai">
+                    <a href=""><i class="fas fa-bell"></i></a>
+                    <a href=""><i class="fas fa-user-circle"></i></a>
+                    <a href="">NAT</a>
+                </div>
             </div>
 
-
-
             <div class="content">
-                content
+                <div > <h1 style="display: inline; ">Manage Group</h1> <i style="margin-left: 20px; font-size: 30px; vertical-align: middle; padding-bottom: 10px ;" class="fas fa-users"></i> </div>
+
+                <div>
+                    <table border="1">
+                       <thead>
+                        <!-- ListGroup -->
+                        <tr>
+                            <td colspan="6"> <h2 style="margin-left: 20px;">List Group</h2></td>
+                        </tr>
+                       
+                        <!-- Search Row -->
+                            <td colspan="6">
+                                <div class="searchrow">
+                                <div>
+                                    <form class="example" action="action_page.php"  style="margin-left : 0px; display: flex">
+                                        <button type="submit" style="background: none; border: 1px solid #ccc; border-right: none;"> <i class="fas fa-search"></i> </button>
+                                        <input type="text" placeholder="Search group.." name="search" style="border: 1px solid #CCC; border-left: none;">
+                                      </form>
+                                </div>
+
+                                <div class="benphai">
+                                    <a href=""><i class="fas fa-plus"></i></a>
+                                    <a href=""><i class="fas fa-sync-alt"></i></a>
+                                    <a href=""><i class="fas fa-trash-alt"></i></a>
+
+                                </div>
+                            </div>
+                            </td>
+                        </tr>
 
 
+                    </thead>
+                    <tbody>
+
+                         <!-- table head -->
+                                <tr style="padding: 0px; background-color: rgb(184, 184, 184); font-weight: bold;">
+                                <th class="checkbox" >
+                                    <input type="checkbox" id="myCheck" onclick="myFunction()" >
+                                    <p id="text" style="display:none">Checkbox is CHECKED!</p>
+                                </th>
+                                <th style="width: 50px;">STT <i class="fas fa-sort"></i> </th>
+                                <th>Group Name<i class="fas fa-sort"></i> </th>
+                                <th>Member<i class="fas fa-sort"></i></th>
+                                <th>Creator<i class="fas fa-sort"></i></th>
+                                <th>Create Date<i class="fas fa-sort"></i></th>
+                            </tr>
+                         <!-- row1 -->
+                            <tr style="padding: 0px;">
+                                <td class="checkbox">
+                                    <input type="checkbox" id="myCheck" onclick="myFunction()" >
+                                    <p id="text" style="display:none">Checkbox is CHECKED!</p>
+                                </td>
+                                <td>1</td>
+                                <td>Fresher Java</td>
+                                <td>5 </td>
+                                <td>NAT</td>
+                                <td>21/02/2020</td>
+                            </tr>
+                         <!-- row1 -->
+                         <tr style="padding: 0px;">
+                            <td class="checkbox">
+                                <input type="checkbox" id="myCheck" onclick="myFunction()" >
+                                <p id="text" style="display:none">Checkbox is CHECKED!</p>
+                            </td>
+                            <td>2</td>
+                            <td>Fresher Python</td>
+                            <td>2 </td>
+                            <td>NAT</td>
+                            <td>21/02/2020</td>
+                        </tr>
+                          <!-- row2 -->
+                            <tr style="padding: 0px;">
+                                <td  class="checkbox">
+                                    <input type="checkbox" id="myCheck" onclick="myFunction()" >
+                                    <p id="text" style="display:none">Checkbox is CHECKED!</p>
+                                </td>
+                                <td>3</td>
+                                <td>Fresher C#</td>
+                                <td>7 </td>
+                                <td>NAT</td>
+                                <td>21/02/2020</td>
+                            </tr>
+                             <!-- row3 -->
+                            <tr style="padding: 0px;">
+                                <td class="checkbox">
+                                    <input type="checkbox" id="myCheck" onclick="myFunction()" >
+                                    <p id="text" style="display:none">Checkbox is CHECKED!</p>
+                                </td>
+                                <td>4</td>
+                                <td>VTI Academy</td>
+                                <td>1 </td>
+                                <td>NAT</td>
+                                <td>21/02/2020</td>
+                            </tr>
+                             <!-- row4 -->
+                            <tr style="padding: 0px;">
+                                <td class="checkbox">
+                                    <input type="checkbox" id="myCheck" onclick="myFunction()" >
+                                    <p id="text" style="display:none">Checkbox is CHECKED!</p>
+                                </td>
+                                <td>5</td>
+                                <td>Railway EPD1</td>
+                                <td>3 </td>
+                                <td>NAT</td>
+                                <td>21/02/2020</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
             </div>
 
         </div>
-        
+
 
 
 
     </div>
 </body>
+
 </html>
